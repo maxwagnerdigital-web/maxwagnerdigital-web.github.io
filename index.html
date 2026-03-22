@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Wagner – WordPress & Web-Optimierung für Kleinunternehmen</title>
+<meta name="description" content="Ich helfe kleinen Unternehmen in Deutschland, ihre Website schneller, moderner und sichtbarer zu machen. Konkrete Ergebnisse, faire Preise.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;line-height:1.6}
+  a{color:#2563eb;text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{background:#1e293b;color:white;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
+  header h1{font-size:1.2rem;font-weight:600}
+  header nav a{color:#94a3b8;margin-left:2rem;font-size:0.9rem}
+  header nav a:hover{color:white;text-decoration:none}
+
+  .hero{background:linear-gradient(135deg,#1e293b 0%,#1e40af 100%);color:white;padding:5rem 2rem;text-align:center}
+  .hero h2{font-size:2.5rem;font-weight:700;margin-bottom:1rem;max-width:700px;margin-left:auto;margin-right:auto}
+  .hero p{font-size:1.2rem;color:#cbd5e1;max-width:550px;margin:0 auto 2rem}
+  .btn{display:inline-block;background:#2563eb;color:white;padding:0.9rem 2rem;border-radius:8px;font-weight:600;font-size:1rem}
+  .btn:hover{background:#1d4ed8;text-decoration:none}
+  .btn-outline{background:transparent;border:2px solid white;margin-left:1rem}
+  .btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+  .section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+  .section h3{font-size:1.8rem;font-weight:700;margin-bottom:0.5rem;text-align:center}
+  .section .subtitle{color:#64748b;text-align:center;margin-bottom:3rem}
+
+  .problems{background:#fff7ed;padding:4rem 2rem}
+  .problems-inner{max-width:900px;margin:0 auto}
+  .problems h3{font-size:1.6rem;font-weight:700;margin-bottom:0.5rem;text-align:center;color:#c2410c}
+  .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
+  .problem-card{background:white;padding:1.5rem;border-radius:10px;border-left:4px solid #ea580c}
+  .problem-card h4{font-weight:600;margin-bottom:0.5rem}
+  .problem-card p{color:#64748b;font-size:0.9rem}
+
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+  .service-card{padding:2rem;border:1px solid #e2e8f0;border-radius:12px;transition:box-shadow .2s}
+  .service-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+  .service-card .icon{font-size:2rem;margin-bottom:1rem}
+  .service-card h4{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
+  .service-card p{color:#64748b;font-size:0.9rem;margin-bottom:1rem}
+  .price{font-weight:700;color:#2563eb;font-size:1.1rem}
+
+  .case-study{background:#f8fafc;padding:2rem;border-radius:12px;margin-top:2rem;border:1px solid #e2e8f0}
+  .case-study h4{font-weight:600;margin-bottom:1rem;color:#1e293b}
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .before,.after{padding:1rem;border-radius:8px}
+  .before{background:#fee2e2;border:1px solid #fca5a5}
+  .before h5{color:#dc2626;margin-bottom:0.5rem;font-size:0.85rem;text-transform:uppercase}
+  .after{background:#dcfce7;border:1px solid #86efac}
+  .after h5{color:#16a34a;margin-bottom:0.5rem;font-size:0.85rem;text-transform:uppercase}
+  .before ul,.after ul{padding-left:1.2rem;font-size:0.9rem;color:#374151}
+  .before ul li,.after ul li{margin-bottom:0.3rem}
+
+  .contact{background:#1e293b;color:white;padding:4rem 2rem;text-align:center}
+  .contact h3{font-size:1.8rem;margin-bottom:1rem}
+  .contact p{color:#94a3b8;margin-bottom:2rem}
+  .contact a.btn{background:#2563eb}
+
+  footer{background:#0f172a;color:#475569;text-align:center;padding:1.5rem;font-size:0.85rem}
+
+  @media(max-width:600px){
+    .hero h2{font-size:1.8rem}
+    .before-after{grid-template-columns:1fr}
+    header{flex-direction:column;gap:1rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Max Wagner · Web-Optimierung</h1>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#beispiele">Beispiele</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Ihre Website bringt Ihnen Kunden — oder sie kostet Sie welche.</h2>
+  <p>Ich analysiere, was auf Ihrer Website nicht stimmt, und behebe es. Konkret, schnell und ohne IT-Kauderwelsch.</p>
+  <a href="#kontakt" class="btn">Kostenlose Website-Analyse</a>
+  <a href="#leistungen" class="btn btn-outline">Leistungen ansehen</a>
+</section>
+
+<div class="problems">
+  <div class="problems-inner">
+    <h3>Erkenne ich Ihre Website wieder?</h3>
+    <p style="text-align:center;color:#9a3412;margin-bottom:0">Diese Probleme kosten täglich potenzielle Kunden.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h4>Lädt zu langsam</h4>
+        <p>53% der Nutzer verlassen eine Seite, die länger als 3 Sekunden lädt. Jede Sekunde kostet Aufträge.</p>
+      </div>
+      <div class="problem-card">
+        <h4>Nicht mobilfreundlich</h4>
+        <p>Über 60% der Suchanfragen kommen vom Smartphone. Eine schlechte mobile Ansicht = unsichtbar bei Google.</p>
+      </div>
+      <div class="problem-card">
+        <h4>Nicht bei Google zu finden</h4>
+        <p>Fehlende Titel, schlechte Struktur, falsche Keywords - Ihre Konkurrenz erscheint, Sie nicht.</p>
+      </div>
+      <div class="problem-card">
+        <h4>Kein SSL / kein HTTPS</h4>
+        <p>Browser zeigen "Nicht sicher" an. Besucher springen sofort ab. Google bestraft Sie im Ranking.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="leistungen">
+  <h3>Was ich für Sie tue</h3>
+  <p class="subtitle">Kein Jahresvertrag. Kein Abo. Klare Preise.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">&#9889;</div>
+      <h4>Website-Schnellanalyse</h4>
+      <p>Ich schaue mir Ihre Website genau an und erstelle einen konkreten Bericht: Was bremst Sie aus, was fehlt, was kostet Sie Kunden.</p>
+      <div class="price">Kostenlos</div>
+    </div>
+    <div class="service-card">
+      <div class="icon">&#128295;</div>
+      <h4>WordPress-Optimierung</h4>
+      <p>Speed, SSL, Mobile-Fix, SEO-Grundlagen. In 1-2 Tagen erledigt. Vorher/Nachher-Messung inklusive.</p>
+      <div class="price">ab 75 EUR</div>
+    </div>
+    <div class="service-card">
+      <div class="icon">&#128260;</div>
+      <h4>Monatliche Wartung</h4>
+      <p>Updates, Backups, Sicherheit, kleine Änderungen. Ihre Website läuft - ohne dass Sie sich darum kümmern müssen.</p>
+      <div class="price">ab 49 EUR/Monat</div>
+    </div>
+    <div class="service-card">
+      <div class="icon">&#128307;</div>
+      <h4>Website-Neugestaltung</h4>
+      <p>Ihre aktuelle Website ist veraltet? Ich baue sie neu - modern, schnell, mobilfreundlich, mit klarem Fokus auf Anfragen.</p>
+      <div class="price">ab 350 EUR</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="beispiele">
+  <h3>Beispiel: Vorher / Nachher</h3>
+  <p class="subtitle">Was konkrete Website-Optimierung bringen kann.</p>
+  <div class="case-study">
+    <h4>Handwerksbetrieb, Bayern — WordPress-Optimierung</h4>
+    <div class="before-after">
+      <div class="before">
+        <h5>Vorher</h5>
+        <ul>
+          <li>Ladezeit: 8,4 Sekunden</li>
+          <li>Google PageSpeed: 23/100</li>
+          <li>Kein HTTPS (Sicherheitswarnung)</li>
+          <li>Menuepunkt sichtbar der unveroeff. war</li>
+          <li>Seitentitel ohne Firmenname oder Ort</li>
+          <li>Auf Smartphone kaum lesbar</li>
+        </ul>
+      </div>
+      <div class="after">
+        <h5>Nachher</h5>
+        <ul>
+          <li>Ladezeit: 1,8 Sekunden</li>
+          <li>Google PageSpeed: 87/100</li>
+          <li>HTTPS aktiv, kein Sicherheits-Banner</li>
+          <li>Saubere Navigation</li>
+          <li>SEO-Titel mit Ort und Leistung</li>
+          <li>Mobilfreundlich, Google-konform</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <h3>Kostenlose Website-Analyse anfragen</h3>
+  <p>Ich schaue mir Ihre Website an und sage Ihnen ehrlich, was verbessert werden sollte - ohne Verpflichtung.</p>
+  <a href="mailto:max.wagner.digital@gmail.com?subject=Website-Analyse%20anfragen" class="btn">max.wagner.digital@gmail.com</a>
+</section>
+
+<footer>
+  2026 Max Wagner - Web-Optimierung - Deutschland
+</footer>
+
+</body>
+</html>
