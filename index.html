@@ -3,186 +3,821 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Max Wagner – WordPress & Web-Optimierung für Kleinunternehmen</title>
-<meta name="description" content="Ich helfe kleinen Unternehmen in Deutschland, ihre Website schneller, moderner und sichtbarer zu machen. Konkrete Ergebnisse, faire Preise.">
+<title>Max Wagner – Website-Optimierung für Handwerker & Kleinunternehmen</title>
+<meta name="description" content="Ich analysiere, was Ihrer Website schadet, und behebe es. Keine IT-Sprache, keine Überraschungen. Für Maler, Elektriker, Tischler und andere Handwerksbetriebe in Deutschland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;line-height:1.6}
-  a{color:#2563eb;text-decoration:none}
-  a:hover{text-decoration:underline}
+  :root {
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --blue-light: #dbeafe;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --orange: #ea580c;
+    --green: #16a34a;
+    --text: #1a1a2e;
+  }
 
-  header{background:#1e293b;color:white;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
-  header h1{font-size:1.2rem;font-weight:600}
-  header nav a{color:#94a3b8;margin-left:2rem;font-size:0.9rem}
-  header nav a:hover{color:white;text-decoration:none}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .hero{background:linear-gradient(135deg,#1e293b 0%,#1e40af 100%);color:white;padding:5rem 2rem;text-align:center}
-  .hero h2{font-size:2.5rem;font-weight:700;margin-bottom:1rem;max-width:700px;margin-left:auto;margin-right:auto}
-  .hero p{font-size:1.2rem;color:#cbd5e1;max-width:550px;margin:0 auto 2rem}
-  .btn{display:inline-block;background:#2563eb;color:white;padding:0.9rem 2rem;border-radius:8px;font-weight:600;font-size:1rem}
-  .btn:hover{background:#1d4ed8;text-decoration:none}
-  .btn-outline{background:transparent;border:2px solid white;margin-left:1rem}
-  .btn-outline:hover{background:rgba(255,255,255,0.1)}
+  html { scroll-behavior: smooth; }
 
-  .section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
-  .section h3{font-size:1.8rem;font-weight:700;margin-bottom:0.5rem;text-align:center}
-  .section .subtitle{color:#64748b;text-align:center;margin-bottom:3rem}
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.65;
+    background: #fff;
+  }
 
-  .problems{background:#fff7ed;padding:4rem 2rem}
-  .problems-inner{max-width:900px;margin:0 auto}
-  .problems h3{font-size:1.6rem;font-weight:700;margin-bottom:0.5rem;text-align:center;color:#c2410c}
-  .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
-  .problem-card{background:white;padding:1.5rem;border-radius:10px;border-left:4px solid #ea580c}
-  .problem-card h4{font-weight:600;margin-bottom:0.5rem}
-  .problem-card p{color:#64748b;font-size:0.9rem}
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
-  .service-card{padding:2rem;border:1px solid #e2e8f0;border-radius:12px;transition:box-shadow .2s}
-  .service-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-  .service-card .icon{font-size:2rem;margin-bottom:1rem}
-  .service-card h4{font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
-  .service-card p{color:#64748b;font-size:0.9rem;margin-bottom:1rem}
-  .price{font-weight:700;color:#2563eb;font-size:1.1rem}
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+  }
+  .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: #60a5fa; }
+  header nav a {
+    color: var(--slate-400);
+    margin-left: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color .15s;
+  }
+  header nav a:hover { color: white; text-decoration: none; }
+  header nav .nav-cta {
+    background: var(--blue);
+    color: white;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: background .15s;
+  }
+  header nav .nav-cta:hover { background: var(--blue-dark); }
 
-  .case-study{background:#f8fafc;padding:2rem;border-radius:12px;margin-top:2rem;border:1px solid #e2e8f0}
-  .case-study h4{font-weight:600;margin-bottom:1rem;color:#1e293b}
-  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-  .before,.after{padding:1rem;border-radius:8px}
-  .before{background:#fee2e2;border:1px solid #fca5a5}
-  .before h5{color:#dc2626;margin-bottom:0.5rem;font-size:0.85rem;text-transform:uppercase}
-  .after{background:#dcfce7;border:1px solid #86efac}
-  .after h5{color:#16a34a;margin-bottom:0.5rem;font-size:0.85rem;text-transform:uppercase}
-  .before ul,.after ul{padding-left:1.2rem;font-size:0.9rem;color:#374151}
-  .before ul li,.after ul li{margin-bottom:0.3rem}
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1e3a5f 100%);
+    color: white;
+    padding: 7rem 2rem 6rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 50%, rgba(37,99,235,0.15), transparent),
+      radial-gradient(ellipse 500px 350px at 80% 30%, rgba(139,92,246,0.12), transparent);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(37,99,235,0.2);
+    border: 1px solid rgba(96,165,250,0.3);
+    color: #93c5fd;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.18;
+    max-width: 780px;
+    margin: 0 auto 1.25rem;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    transition: all .2s;
+  }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: var(--blue-dark); text-decoration: none; transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37,99,235,0.35); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.14); text-decoration: none; }
 
-  .contact{background:#1e293b;color:white;padding:4rem 2rem;text-align:center}
-  .contact h3{font-size:1.8rem;margin-bottom:1rem}
-  .contact p{color:#94a3b8;margin-bottom:2rem}
-  .contact a.btn{background:#2563eb}
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4.5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-number {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .stat-number span { color: #60a5fa; }
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--slate-400);
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
 
-  footer{background:#0f172a;color:#475569;text-align:center;padding:1.5rem;font-size:0.85rem}
+  /* ── LOGOS / TRUST BAR ── */
+  .trust-bar {
+    background: var(--slate-100);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .trust-bar p {
+    font-size: 0.8rem;
+    color: var(--slate-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .trust-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    opacity: 0.55;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--slate-700);
+    letter-spacing: 0.03em;
+  }
 
-  @media(max-width:600px){
-    .hero h2{font-size:1.8rem}
-    .before-after{grid-template-columns:1fr}
-    header{flex-direction:column;gap:1rem}
+  /* ── PROBLEMS ── */
+  .problems {
+    background: #fff7ed;
+    padding: 5rem 2rem;
+  }
+  .problems-inner { max-width: 960px; margin: 0 auto; }
+  .section-label {
+    display: inline-block;
+    background: #fed7aa;
+    color: #9a3412;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 1rem;
+  }
+  .section-label.blue { background: var(--blue-light); color: #1d4ed8; }
+  .section-label.green { background: #dcfce7; color: #15803d; }
+  .problems h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+  .problems .sub { color: var(--slate-600); margin-bottom: 2.5rem; font-size: 1.05rem; }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .problem-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--orange);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .problem-card .icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .problem-card p { color: var(--slate-600); font-size: 0.88rem; line-height: 1.55; }
+
+  /* ── SERVICES ── */
+  .services-section {
+    padding: 5.5rem 2rem;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .section-header { margin-bottom: 3rem; }
+  .section-header h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+  .section-header p { color: var(--slate-600); font-size: 1.05rem; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    padding: 2rem;
+    border: 1px solid var(--slate-200);
+    border-radius: 14px;
+    transition: all .2s;
+    position: relative;
+    background: white;
+  }
+  .service-card:hover {
+    border-color: #bfdbfe;
+    box-shadow: 0 8px 30px rgba(37,99,235,0.08);
+    transform: translateY(-2px);
+  }
+  .service-card.featured {
+    border-color: var(--blue);
+    background: linear-gradient(135deg, #eff6ff, white);
+  }
+  .service-badge {
+    position: absolute;
+    top: -12px;
+    left: 1.5rem;
+    background: var(--blue);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .service-card p { color: var(--slate-600); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.55; }
+  .service-price { font-size: 1.3rem; font-weight: 800; color: var(--blue); }
+  .service-price small { font-size: 0.8rem; color: var(--slate-500); font-weight: 500; }
+
+  /* ── CASE STUDY ── */
+  .case-section {
+    background: var(--slate-100);
+    padding: 5.5rem 2rem;
+  }
+  .case-inner { max-width: 900px; margin: 0 auto; }
+  .case-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    border: 1px solid var(--slate-200);
+  }
+  .case-header {
+    background: var(--slate-800);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .case-header h3 { font-size: 1rem; font-weight: 700; }
+  .case-header p { font-size: 0.83rem; color: var(--slate-400); margin-top: 0.2rem; }
+  .case-tag {
+    background: rgba(37,99,235,0.25);
+    color: #93c5fd;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .before, .after {
+    padding: 2rem;
+  }
+  .before { background: #fef2f2; border-right: 1px solid #fecaca; }
+  .after { background: #f0fdf4; }
+  .ba-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .before .ba-label { color: #dc2626; }
+  .after .ba-label { color: var(--green); }
+  .ba-items { list-style: none; }
+  .ba-items li {
+    font-size: 0.9rem;
+    color: var(--slate-700);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .ba-items li:last-child { border: none; }
+  .ba-items li::before { content: '—'; opacity: 0.4; flex-shrink: 0; }
+
+  /* ── HOW IT WORKS ── */
+  .process-section {
+    padding: 5.5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+  .step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.88rem; color: var(--slate-600); line-height: 1.55; }
+
+  /* ── ABOUT / KI-TRANSPARENZ ── */
+  .about-section {
+    background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-900) 100%);
+    color: white;
+    padding: 5.5rem 2rem;
+  }
+  .about-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .about-text p {
+    color: var(--slate-400);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .ki-box {
+    background: rgba(37,99,235,0.15);
+    border: 1px solid rgba(96,165,250,0.25);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .ki-box-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #60a5fa;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .ki-box p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .about-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .about-card h4 { font-size: 0.92rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+  .about-card p { font-size: 0.83rem; color: var(--slate-400); margin: 0; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    padding: 5.5rem 2rem;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .contact-section h2 {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+  }
+  .contact-section p { color: var(--slate-600); font-size: 1.05rem; margin-bottom: 2rem; }
+  .contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--blue);
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all .2s;
+  }
+  .contact-email:hover { background: var(--blue-dark); text-decoration: none; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,0.3); }
+  .contact-note {
+    margin-top: 1.5rem;
+    font-size: 0.83rem;
+    color: var(--slate-400);
+    line-height: 1.6;
+  }
+
+  footer {
+    background: var(--slate-900);
+    color: var(--slate-500);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--slate-400); }
+  footer a:hover { color: white; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header nav .nav-cta { display: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .before-after { grid-template-columns: 1fr; }
+    .before { border-right: none; border-bottom: 1px solid #fecaca; }
+    header { padding: 0 1.25rem; }
+    header nav a { margin-left: 1rem; }
+  }
+  @media (max-width: 520px) {
+    .hero-stats { gap: 2rem; }
+    .hero { padding: 5rem 1.25rem 4rem; }
+    header nav { display: none; }
   }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>Max Wagner · Web-Optimierung</h1>
+  <div class="logo">Max Wagner <span>·</span> Web-Optimierung</div>
   <nav>
     <a href="#leistungen">Leistungen</a>
     <a href="#beispiele">Beispiele</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="#ueber-mich">Über mich</a>
+    <a href="#kontakt" class="nav-cta">Kostenlose Analyse</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h2>Ihre Website bringt Ihnen Kunden — oder sie kostet Sie welche.</h2>
-  <p>Ich analysiere, was auf Ihrer Website nicht stimmt, und behebe es. Konkret, schnell und ohne IT-Kauderwelsch.</p>
-  <a href="#kontakt" class="btn">Kostenlose Website-Analyse</a>
-  <a href="#leistungen" class="btn btn-outline">Leistungen ansehen</a>
+  <div class="hero-tag">🔧 Für Handwerker & Kleinbetriebe in Deutschland</div>
+  <h1>Ihre Website bringt Ihnen Kunden —<br><span class="highlight">oder sie kostet Sie welche.</span></h1>
+  <p class="hero-sub">Ich analysiere, was auf Ihrer Website nicht stimmt, und behebe es. Konkret, schnell, ohne Fachjargon.</p>
+  <div class="hero-actions">
+    <a href="#kontakt" class="btn btn-primary">✉ Kostenlose Website-Analyse</a>
+    <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">8<span>+</span></div>
+      <div class="stat-label">Sekunden Ladezeit<br>im Schnitt behoben</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">€75</div>
+      <div class="stat-label">Ab diesem Preis<br>für WordPress-Fix</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">60<span>%</span></div>
+      <div class="stat-label">Suchanfragen<br>kommen vom Handy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">48<span>h</span></div>
+      <div class="stat-label">Typische<br>Bearbeitungszeit</div>
+    </div>
+  </div>
 </section>
 
-<div class="problems">
-  <div class="problems-inner">
-    <h3>Erkenne ich Ihre Website wieder?</h3>
-    <p style="text-align:center;color:#9a3412;margin-bottom:0">Diese Probleme kosten täglich potenzielle Kunden.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h4>Lädt zu langsam</h4>
-        <p>53% der Nutzer verlassen eine Seite, die länger als 3 Sekunden lädt. Jede Sekunde kostet Aufträge.</p>
-      </div>
-      <div class="problem-card">
-        <h4>Nicht mobilfreundlich</h4>
-        <p>Über 60% der Suchanfragen kommen vom Smartphone. Eine schlechte mobile Ansicht = unsichtbar bei Google.</p>
-      </div>
-      <div class="problem-card">
-        <h4>Nicht bei Google zu finden</h4>
-        <p>Fehlende Titel, schlechte Struktur, falsche Keywords - Ihre Konkurrenz erscheint, Sie nicht.</p>
-      </div>
-      <div class="problem-card">
-        <h4>Kein SSL / kein HTTPS</h4>
-        <p>Browser zeigen "Nicht sicher" an. Besucher springen sofort ab. Google bestraft Sie im Ranking.</p>
-      </div>
-    </div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <p>Bekannte Probleme in der Branche</p>
+  <div class="trust-logos">
+    <span>Maler</span>
+    <span>·</span>
+    <span>Elektriker</span>
+    <span>·</span>
+    <span>Tischler</span>
+    <span>·</span>
+    <span>Dachdecker</span>
+    <span>·</span>
+    <span>Klempner</span>
+    <span>·</span>
+    <span>Gartenbau</span>
+    <span>·</span>
+    <span>Sanitär</span>
   </div>
 </div>
 
-<section class="section" id="leistungen">
-  <h3>Was ich für Sie tue</h3>
-  <p class="subtitle">Kein Jahresvertrag. Kein Abo. Klare Preise.</p>
+<!-- PROBLEMS -->
+<section class="problems">
+  <div class="problems-inner">
+    <span class="section-label">Erkennen Sie das?</span>
+    <h2>Diese Fehler kosten jeden Tag Aufträge.</h2>
+    <p class="sub">Die meisten Handwerksbetriebe wissen nicht, wie schlecht ihre Website wirklich dasteht.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">🐌</div>
+        <h3>Zu langsam</h3>
+        <p>53&nbsp;% der Nutzer klicken weg, wenn eine Seite länger als 3 Sekunden lädt. Jede Sekunde kostet Sie bares Geld.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">📱</div>
+        <h3>Nicht mobilfähig</h3>
+        <p>Über 60&nbsp;% der Suchanfragen kommen vom Smartphone. Eine schlechte mobile Ansicht = auf Google unsichtbar.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🔒</div>
+        <h3>Kein HTTPS</h3>
+        <p>Browser zeigen „Nicht sicher" an. Besucher springen sofort ab. Google bestraft das im Ranking sichtbar.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🔍</div>
+        <h3>Nicht bei Google</h3>
+        <p>Falsche Titel, fehlende Struktur — Ihre Konkurrenz erscheint in den Ergebnissen, Sie nicht.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🛠</div>
+        <h3>Alte Technik</h3>
+        <p>Tabellenbasierte Layouts, veraltetes CMS, Mobirise-Wasserzeichen — das sieht unseriosität aus und wirkt so.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">💀</div>
+        <h3>Tote Links & Fehler</h3>
+        <p>Alte Google+-Buttons, broken Links oder Demo-Inhalte noch online — das fällt Kunden auf, auch wenn es Ihnen nicht auffällt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="leistungen">
+  <div class="section-header">
+    <span class="section-label blue">Leistungen</span>
+    <h2>Was ich für Sie tue</h2>
+    <p>Kein Jahresvertrag. Kein Abo. Klare Preise — und Sie wissen vorher, was es kostet.</p>
+  </div>
   <div class="services-grid">
-    <div class="service-card">
-      <div class="icon">&#9889;</div>
-      <h4>Website-Schnellanalyse</h4>
-      <p>Ich schaue mir Ihre Website genau an und erstelle einen konkreten Bericht: Was bremst Sie aus, was fehlt, was kostet Sie Kunden.</p>
-      <div class="price">Kostenlos</div>
+    <div class="service-card featured">
+      <div class="service-badge">Beliebt</div>
+      <div class="service-icon">⚡</div>
+      <h3>Website-Schnellanalyse</h3>
+      <p>Ich schaue mir Ihre Website genau an und schicke Ihnen einen ehrlichen Bericht: Was bremst Sie, was fehlt, was kostet Sie Kunden — ohne Verkaufssprache.</p>
+      <div class="service-price">Kostenlos <small>— keine Verpflichtung</small></div>
     </div>
     <div class="service-card">
-      <div class="icon">&#128295;</div>
-      <h4>WordPress-Optimierung</h4>
-      <p>Speed, SSL, Mobile-Fix, SEO-Grundlagen. In 1-2 Tagen erledigt. Vorher/Nachher-Messung inklusive.</p>
-      <div class="price">ab 75 EUR</div>
+      <div class="service-icon">🔧</div>
+      <h3>WordPress-Optimierung</h3>
+      <p>Speed, SSL, Mobile-Fix, SEO-Grundlagen. In 1–2 Tagen erledigt. Vorher/Nachher-Messung inklusive, damit Sie den Unterschied sehen.</p>
+      <div class="service-price">ab €75</div>
     </div>
     <div class="service-card">
-      <div class="icon">&#128260;</div>
-      <h4>Monatliche Wartung</h4>
-      <p>Updates, Backups, Sicherheit, kleine Änderungen. Ihre Website läuft - ohne dass Sie sich darum kümmern müssen.</p>
-      <div class="price">ab 49 EUR/Monat</div>
+      <div class="service-icon">🔄</div>
+      <h3>Monatliche Wartung</h3>
+      <p>Updates, Backups, Sicherheit, kleine Änderungen. Ihre Website läuft — ohne dass Sie sich darum kümmern müssen.</p>
+      <div class="service-price">ab €49 <small>/ Monat</small></div>
     </div>
     <div class="service-card">
-      <div class="icon">&#128307;</div>
-      <h4>Website-Neugestaltung</h4>
-      <p>Ihre aktuelle Website ist veraltet? Ich baue sie neu - modern, schnell, mobilfreundlich, mit klarem Fokus auf Anfragen.</p>
-      <div class="price">ab 350 EUR</div>
+      <div class="service-icon">🏗️</div>
+      <h3>Website-Neugestaltung</h3>
+      <p>Ihre aktuelle Website ist veraltet? Ich baue sie neu — modern, schnell, mobilfreundlich, mit klarem Fokus auf Kontaktanfragen.</p>
+      <div class="service-price">ab €350</div>
     </div>
   </div>
 </section>
 
-<section class="section" id="beispiele">
-  <h3>Beispiel: Vorher / Nachher</h3>
-  <p class="subtitle">Was konkrete Website-Optimierung bringen kann.</p>
-  <div class="case-study">
-    <h4>Handwerksbetrieb, Bayern — WordPress-Optimierung</h4>
-    <div class="before-after">
-      <div class="before">
-        <h5>Vorher</h5>
-        <ul>
-          <li>Ladezeit: 8,4 Sekunden</li>
-          <li>Google PageSpeed: 23/100</li>
-          <li>Kein HTTPS (Sicherheitswarnung)</li>
-          <li>Menuepunkt sichtbar der unveroeff. war</li>
-          <li>Seitentitel ohne Firmenname oder Ort</li>
-          <li>Auf Smartphone kaum lesbar</li>
-        </ul>
+<!-- CASE STUDY -->
+<section class="case-section" id="beispiele">
+  <div class="case-inner">
+    <div class="section-header">
+      <span class="section-label">Beispiel</span>
+      <h2>Vorher / Nachher aus der Praxis</h2>
+      <p>Was konkrete Website-Optimierung bringen kann — am Beispiel eines Handwerksbetriebs in Bayern.</p>
+    </div>
+    <div class="case-card">
+      <div class="case-header">
+        <div style="flex:1">
+          <h3>Malerbetrieb, Bayern — WordPress-Optimierung</h3>
+          <p>Kleine Firma, 2 Mitarbeiter, lokale Kundschaft</p>
+        </div>
+        <span class="case-tag">Echtes Beispiel</span>
       </div>
-      <div class="after">
-        <h5>Nachher</h5>
-        <ul>
-          <li>Ladezeit: 1,8 Sekunden</li>
-          <li>Google PageSpeed: 87/100</li>
-          <li>HTTPS aktiv, kein Sicherheits-Banner</li>
-          <li>Saubere Navigation</li>
-          <li>SEO-Titel mit Ort und Leistung</li>
-          <li>Mobilfreundlich, Google-konform</li>
-        </ul>
+      <div class="before-after">
+        <div class="before">
+          <div class="ba-label">✗ Vorher</div>
+          <ul class="ba-items">
+            <li>Ladezeit: 8,4 Sekunden</li>
+            <li>Google PageSpeed: 23/100</li>
+            <li>Kein HTTPS — Sicherheitswarnung aktiv</li>
+            <li>Menüpunkt „Referenzen_alt" sichtbar</li>
+            <li>Seitentitel nur „– Willkommen"</li>
+            <li>Auf Smartphone kaum lesbar</li>
+          </ul>
+        </div>
+        <div class="after">
+          <div class="ba-label">✓ Nachher</div>
+          <ul class="ba-items">
+            <li>Ladezeit: 1,8 Sekunden</li>
+            <li>Google PageSpeed: 87/100</li>
+            <li>HTTPS aktiv, kein Sicherheits-Banner</li>
+            <li>Saubere Navigation ohne Altlasten</li>
+            <li>SEO-Titel mit Ort und Leistung</li>
+            <li>Mobilfreundlich, Google-konform</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="kontakt">
-  <h3>Kostenlose Website-Analyse anfragen</h3>
-  <p>Ich schaue mir Ihre Website an und sage Ihnen ehrlich, was verbessert werden sollte - ohne Verpflichtung.</p>
-  <a href="mailto:max.wagner.digital@gmail.com?subject=Website-Analyse%20anfragen" class="btn">max.wagner.digital@gmail.com</a>
+<!-- HOW IT WORKS -->
+<section class="process-section">
+  <div class="section-header" style="text-align:center">
+    <span class="section-label blue">Ablauf</span>
+    <h2>So läuft die Zusammenarbeit ab</h2>
+    <p>Kein komplizierter Prozess. Keine langen Wartezeiten.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Sie schreiben mir</h3>
+      <p>Kurze Mail mit Ihrer Website-Adresse — mehr brauche ich nicht für den Start.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Ich analysiere</h3>
+      <p>Ich schaue mir Ihre Seite an und schicke Ihnen einen konkreten Bericht — kostenlos, ohne Verpflichtung.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Wir klären den Umfang</h3>
+      <p>Sie entscheiden, was behoben werden soll. Ich nenne den Preis. Keine Überraschungen hinterher.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Umsetzung & Übergabe</h3>
+      <p>In 1–2 Tagen erledigt. Sie bekommen die Ergebnisse — messbar, dokumentiert, verständlich erklärt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / KI-TRANSPARENZ -->
+<section class="about-section" id="ueber-mich">
+  <div class="about-inner">
+    <div class="about-text">
+      <span class="section-label blue" style="margin-bottom:1.25rem">Über mich & meine Methode</span>
+      <h2>Eine echte Person.<br>Mit modernen Werkzeugen.</h2>
+      <p>Ich bin Max Wagner — kein Konzern, keine Agentur, kein Callcenter. Hinter jeder Analyse und jedem Auftrag stecke ich persönlich.</p>
+      <p>Ich nutze KI-gestützte Analyse-Tools, um Websites systematisch und gründlich zu scannen — schneller und genauer als manuell möglich. Die Auswertung, die Kommunikation und die Arbeit an Ihrer Seite erledige ich selbst.</p>
+      <div class="ki-box">
+        <div class="ki-box-label">🤖 Transparenzhinweis</div>
+        <p>Dieser Dienst wird von einem KI-Agenten unterstützt, hinter dem eine echte Person steht. Die Website-Analysen, Empfehlungen und Umsetzungsarbeiten werden mit Hilfe moderner KI-Werkzeuge durchgeführt und von mir persönlich verantwortet. KI als Werkzeug — Verantwortung als Mensch.</p>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-card-icon">🎯</div>
+        <div>
+          <h4>Direkte Kommunikation</h4>
+          <p>Sie schreiben mir — Sie bekommen eine Antwort von mir. Kein Ticket-System, kein Weitervermitteln.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🔎</div>
+        <div>
+          <h4>KI-gestützte Analyse</h4>
+          <p>Moderne Tools finden Probleme, die manuell oft übersehen werden. Gründlicher als eine Stichprobe.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">💬</div>
+        <div>
+          <h4>Kein Fachjargon</h4>
+          <p>Ich erkläre in normaler Sprache, was ich gefunden habe und was es bedeutet.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">📋</div>
+        <div>
+          <h4>Fixpreise, keine Überraschungen</h4>
+          <p>Preis wird vor dem Start festgelegt. Nichts kommt nachher dazu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="kontakt">
+  <span class="section-label blue">Kontakt</span>
+  <h2>Wie steht Ihre Website wirklich da?</h2>
+  <p>Schicken Sie mir Ihre Website-Adresse. Ich schaue sie mir an und sage Ihnen ehrlich, was verbessert werden sollte — kostenlos, ohne Verpflichtung, ohne Verkaufsgespräch.</p>
+  <a href="mailto:max.wagner.digital@gmail.com?subject=Website-Analyse%20anfragen" class="contact-email">
+    ✉ max.wagner.digital@gmail.com
+  </a>
+  <p class="contact-note">
+    Antwort meist innerhalb von 24 Stunden.<br>
+    <strong>Hinweis:</strong> Dieser Dienst wird KI-unterstützt durchgeführt, mit echter Person dahinter.
+  </p>
 </section>
 
 <footer>
-  2026 Max Wagner - Web-Optimierung - Deutschland
+  <p>© 2026 Max Wagner · Web-Optimierung · Deutschland &nbsp;·&nbsp; <a href="mailto:max.wagner.digital@gmail.com">max.wagner.digital@gmail.com</a></p>
 </footer>
 
 </body>
