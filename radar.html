@@ -67,67 +67,184 @@
     .nav-links a:hover { color: var(--ink); }
     .nav-links a.active { color: var(--ink); font-weight: 600; }
 
-    /* ── PAGE HEADER ── */
-    .page-header {
-      padding: 4rem 3rem 3rem;
-      border-bottom: 1px solid var(--border);
-      max-width: 1200px;
+    /* ── LANDING TWO-COLUMN LAYOUT ── */
+    .landing {
+      border-bottom: 2px solid var(--ink);
+    }
+    .landing-inner {
+      max-width: 1280px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      min-height: calc(100vh - 56px);
+      align-items: start;
+    }
+
+    /* Left content panel */
+    .landing-left {
+      padding: 4.5rem 4rem 4.5rem 3rem;
+      border-right: 1px solid var(--border);
     }
     .page-eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       display: block;
     }
-    .page-header h1 {
+    .landing-left h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.05;
       letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 560px;
+    }
+    .landing-desc {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    /* Sample output preview */
+    .preview-output {
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
+      background: white;
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .preview-header-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .preview-header-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--border);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+    }
+    .preview-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .pm {
+      padding: 1.25rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .pm:last-child { border-right: none; }
+    .pm-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .pm-value.good { color: var(--green); }
+    .pm-value.accent { color: var(--accent); }
+    .pm-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .preview-footer {
+      padding: 0.6rem 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--border);
+      font-style: italic;
+    }
+
+    /* How it works */
+    .how-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 0.75rem;
     }
-    .page-header p {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 560px;
-      line-height: 1.65;
+    .how-steps {
+      border-top: 1px solid var(--border);
     }
-
-    /* ── INPUT SECTION ── */
-    .input-section {
-      padding: 3rem 3rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .input-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .input-grid {
+    .how-step {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
     }
-    @media (max-width: 700px) { .input-grid { grid-template-columns: 1fr; } }
+    .how-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .how-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
 
+    /* Right form panel */
+    .landing-right {
+      position: sticky;
+      top: 56px;
+      padding: 0;
+    }
+    .form-panel {
+      background: var(--ink);
+      color: white;
+      padding: 2.5rem;
+      min-height: calc(100vh - 56px);
+    }
+    .form-panel-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2rem;
+    }
+    .url-fields {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.75rem;
+    }
     .url-field {
-      background: var(--bg);
-      padding: 1rem 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .url-field label {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.45);
       margin-bottom: 0.4rem;
     }
     .url-field label.your-label { color: var(--accent); }
@@ -135,37 +252,41 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid var(--border);
-      padding: 0.4rem 0;
-      color: var(--ink);
+      padding: 0.2rem 0;
+      color: white;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9rem;
-      transition: border-color 0.2s;
       outline: none;
     }
-    .url-field input:focus { border-color: var(--accent); }
-    .url-field input::placeholder { color: var(--border); }
-
+    .url-field input::placeholder { color: rgba(255,255,255,0.18); }
     .btn-analyze {
-      padding: 0.9rem 2.5rem;
-      background: var(--ink);
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
       border: none;
-      color: var(--bg);
+      color: white;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.15s;
-      letter-spacing: 0.02em;
+      transition: opacity 0.15s;
+      letter-spacing: 0.01em;
+      display: block;
     }
-    .btn-analyze:hover { background: var(--accent); }
-    .btn-analyze:disabled { opacity: 0.4; cursor: not-allowed; }
-
+    .btn-analyze:hover { opacity: 0.9; }
+    .btn-analyze:disabled { opacity: 0.3; cursor: not-allowed; }
     .error-msg {
-      color: var(--red);
-      font-size: 0.82rem;
+      color: #FCA5A5;
+      font-size: 0.8rem;
       margin-top: 0.75rem;
       display: none;
+    }
+    .form-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      margin-top: 1.25rem;
+      text-align: center;
+      line-height: 1.5;
     }
 
     /* ── PROGRESS ── */
@@ -486,14 +607,18 @@
     footer a { color: var(--muted); }
 
     @media (max-width: 960px) {
+      .landing-inner { grid-template-columns: 1fr; min-height: auto; }
+      .landing-left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2rem; }
+      .landing-right { position: static; }
+      .form-panel { min-height: auto; padding: 2rem; }
       .chart-layout { grid-template-columns: 1fr; }
       .chart-canvas-wrap { border-right: none; border-bottom: 1px solid var(--border); }
       .cta-section { grid-template-columns: 1fr; }
     }
     @media (max-width: 700px) {
       nav { padding: 0 1.25rem; }
-      .page-header { padding: 2.5rem 1.25rem 2rem; }
-      .input-section { padding: 2rem 1.25rem; }
+      .landing-left { padding: 2.5rem 1.25rem; }
+      .preview-metrics { grid-template-columns: repeat(2, 1fr); }
       .progress-section { padding: 1.5rem 1.25rem; }
       .results-section { padding: 2rem 1.25rem 3rem; }
       .bar-cell { display: none; }
@@ -514,38 +639,93 @@
   </ul>
 </nav>
 
-<div class="page-header">
-  <span class="page-eyebrow">Kostenlos &amp; sofort</span>
-  <h1>Wie gut sind Sie im<br>Vergleich zur Konkurrenz?</h1>
-  <p>Geben Sie Ihre Website-URL und bis zu 3 Wettbewerber ein. In 30 Sekunden sehen Sie wer technisch besser aufgestellt ist — und warum.</p>
-</div>
+<!-- TWO-COLUMN LANDING -->
+<div class="landing">
+  <div class="landing-inner">
 
-<section class="input-section">
-  <div class="input-inner">
-    <div class="input-grid">
-      <div class="url-field">
-        <label class="your-label">Ihre Website</label>
-        <input type="url" id="url0" placeholder="https://ihre-website.de" />
+    <!-- Left: Explanation + Preview -->
+    <div class="landing-left">
+      <span class="page-eyebrow">Kostenlos &amp; sofort</span>
+      <h1>Wie gut stehen Sie wirklich da?</h1>
+      <p class="landing-desc">Geben Sie Ihre URL und die Ihrer Wettbewerber ein. In 30 Sekunden sehen Sie Ihren technischen Stand im direkten Vergleich — mit konkreten Zahlen, nicht mit Meinungen.</p>
+
+      <!-- Sample output preview -->
+      <div class="preview-output">
+        <div class="preview-header">
+          <span class="preview-header-label">Beispiel-Ergebnis</span>
+          <span class="preview-header-tag">Vorschau</span>
+        </div>
+        <div class="preview-metrics">
+          <div class="pm">
+            <span class="pm-value good">94</span>
+            <span class="pm-label">Performance</span>
+          </div>
+          <div class="pm">
+            <span class="pm-value good">89</span>
+            <span class="pm-label">SEO</span>
+          </div>
+          <div class="pm">
+            <span class="pm-value good">100</span>
+            <span class="pm-label">Best Practices</span>
+          </div>
+          <div class="pm">
+            <span class="pm-value accent">+14</span>
+            <span class="pm-label">vs. Ø Wettbewerber</span>
+          </div>
+        </div>
+        <div class="preview-footer">Ihre echten Werte erscheinen nach der Analyse</div>
       </div>
-      <div class="url-field">
-        <label>Wettbewerber 1</label>
-        <input type="url" id="url1" placeholder="https://wettbewerber1.de" />
-      </div>
-      <div class="url-field">
-        <label>Wettbewerber 2 <span style="font-weight:300">(optional)</span></label>
-        <input type="url" id="url2" placeholder="https://wettbewerber2.de" />
-      </div>
-      <div class="url-field">
-        <label>Wettbewerber 3 <span style="font-weight:300">(optional)</span></label>
-        <input type="url" id="url3" placeholder="https://wettbewerber3.de" />
+
+      <!-- How it works -->
+      <p class="how-label">So funktioniert es</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <span class="how-num">01</span>
+          <span class="how-text">Ihre URL und bis zu 3 Wettbewerber eingeben</span>
+        </div>
+        <div class="how-step">
+          <span class="how-num">02</span>
+          <span class="how-text">Google PageSpeed analysiert alle Seiten (~30 Sekunden)</span>
+        </div>
+        <div class="how-step">
+          <span class="how-num">03</span>
+          <span class="how-text">Rangliste, Radar-Chart &amp; Metrik-Vergleich erscheinen</span>
+        </div>
       </div>
     </div>
-    <button class="btn-analyze" id="analyzeBtn" onclick="startAnalysis()">
-      Wettbewerbs-Analyse starten →
-    </button>
-    <div class="error-msg" id="errorMsg"></div>
+
+    <!-- Right: Sticky form panel -->
+    <div class="landing-right">
+      <div class="form-panel">
+        <div class="form-panel-label">Analyse starten</div>
+        <div class="url-fields">
+          <div class="url-field">
+            <label class="your-label">Ihre Website</label>
+            <input type="url" id="url0" placeholder="https://ihre-website.de" />
+          </div>
+          <div class="url-field">
+            <label>Wettbewerber 1</label>
+            <input type="url" id="url1" placeholder="https://wettbewerber1.de" />
+          </div>
+          <div class="url-field">
+            <label>Wettbewerber 2 <span style="font-weight:300;opacity:0.6">(optional)</span></label>
+            <input type="url" id="url2" placeholder="https://wettbewerber2.de" />
+          </div>
+          <div class="url-field">
+            <label>Wettbewerber 3 <span style="font-weight:300;opacity:0.6">(optional)</span></label>
+            <input type="url" id="url3" placeholder="https://wettbewerber3.de" />
+          </div>
+        </div>
+        <button class="btn-analyze" id="analyzeBtn" onclick="startAnalysis()">
+          Wettbewerbs-Analyse starten →
+        </button>
+        <div class="error-msg" id="errorMsg"></div>
+        <p class="form-note">Kostenlos · Kein Account · Keine E-Mail nötig<br>Powered by Google PageSpeed Insights</p>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
 
 <section class="progress-section" id="progressSection">
   <div class="progress-inner">

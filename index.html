@@ -83,7 +83,7 @@
 
   /* ── HERO ── */
   .hero {
-    padding: 5.5rem 3rem 4rem;
+    padding: 6rem 3rem 5rem;
     border-bottom: 1px solid var(--border);
   }
   .hero-inner {
@@ -97,13 +97,13 @@
   .hero-left {}
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
     font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
     color: var(--ink);
     margin-bottom: 1.5rem;
-    max-width: 620px;
+    max-width: 680px;
   }
   .hero h1 em {
     font-style: italic;
@@ -152,9 +152,8 @@
 
   /* ── HERO STATS STRIP ── */
   .stats-strip {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    padding: 2rem 2rem 1.75rem;
+    padding: 0;
+    border-top: 2px solid var(--ink);
   }
   .stats-strip-label {
     font-size: 0.65rem;
@@ -162,7 +161,8 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
   }
   .stats-list {
     display: flex;
@@ -172,58 +172,26 @@
   .stat-item {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
     align-items: baseline;
-    padding: 0.9rem 0;
+    padding: 1.1rem 0;
     border-bottom: 1px solid var(--border);
   }
   .stat-item:last-child { border-bottom: none; }
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 3.2rem;
     font-weight: 900;
     color: var(--ink);
     line-height: 1;
-    letter-spacing: -0.03em;
-    min-width: 80px;
+    letter-spacing: -0.04em;
+    min-width: 90px;
   }
   .stat-desc {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--muted);
-    line-height: 1.4;
+    line-height: 1.45;
   }
-
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    border-bottom: 1px solid var(--border);
-    padding: 1.25rem 3rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  .trust-bar-label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .trust-bar-items {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .trust-bar-items span {
-    font-size: 0.82rem;
-    color: var(--muted);
-    padding: 0 1.1rem;
-    border-right: 1px solid var(--border);
-    line-height: 1;
-  }
-  .trust-bar-items span:last-child { border-right: none; }
 
   /* ── PROBLEMS ── */
   .problems {
@@ -241,10 +209,10 @@
   .problems-sidebar {}
   .problems-sidebar h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
     font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
     margin-bottom: 1rem;
   }
   .problems-sidebar .sub {
@@ -790,20 +758,6 @@
     </div>
   </div>
 </section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <span class="trust-bar-label">Bekannte Probleme in der Branche</span>
-  <div class="trust-bar-items">
-    <span>Maler</span>
-    <span>Elektriker</span>
-    <span>Tischler</span>
-    <span>Dachdecker</span>
-    <span>Klempner</span>
-    <span>Gartenbau</span>
-    <span>Sanitär</span>
-  </div>
-</div>
 
 <!-- PROBLEMS -->
 <section class="problems" id="probleme">
